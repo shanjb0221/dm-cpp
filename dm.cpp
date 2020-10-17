@@ -432,23 +432,25 @@ string main(string str) {
 		string res=getTruthTable(root);
 		sout<<"[RESULT] "<<res<<endl;
 	} catch(int e) {
-		sout<<"[ERROR] ("<<e<<") : ";
+		serr<<"[ERROR] ("<<e<<") : ";
 		switch(e) {
 			case 1000:
-				sout<<"Invalid Expression";
+				serr<<"Invalid Expression";
 				break;
 			case 1003:
-				sout<<"Killed : Too Many Variables!";
+				serr<<"Killed : Too Many Variables!";
 				break;
 			case 1005:
 				serr<<"Killed : Too Long Input!";
 				break;
 			default:
-				sout<<"Unknown Error";
+				serr<<"Unknown Error";
 		}
-		sout<<endl;
+		serr<<endl;
+		return serr.str();
 	} catch(...) {
-		sout<<"[ERROR] () : Unknown Error"<<endl;
+		serr<<"[ERROR] () : Unknown Error"<<endl;
+		return serr.str();
 	}
 	return sout.str();
 }
